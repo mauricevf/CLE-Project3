@@ -6,6 +6,9 @@
     <title>Toto Bestelservice</title>
 </head>
 <body>
-    
+<!--Houdt dit erin (Nodig voor DOM)-->
+    <section id="content">
+
+    </section>
 </body>
 </html>
