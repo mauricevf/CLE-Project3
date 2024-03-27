@@ -1,0 +1,2 @@
+const apiUrl = 'actions.php'
+
