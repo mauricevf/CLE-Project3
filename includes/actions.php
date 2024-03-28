@@ -61,12 +61,43 @@ function getDrinks(): array
 
 function getDishDetails(): array {
     return [
-
+        [
+            "id" => 1,
+            "description" => "-"
+        ],
+        [
+            "id" => 2,
+            "description" => "-"
+        ],
+        [
+            "id" => 3,
+            "description" => "-"
+        ],
+        [
+            "id" => 4,
+            "description" => "-"
+        ],
     ];
 }
 
 function getDrinkDetails(): array {
     return [
+        [
+            "id" => 1,
+            "description" => "-"
+        ],
+        [
+            "id" => 2,
+            "description" => "-"
+        ],
+        [
+            "id" => 3,
+            "description" => "-"
+        ],
+        [
+            "id" => 4,
+            "description" => "-"
+        ],
 
     ];
 }
