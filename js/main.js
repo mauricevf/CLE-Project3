@@ -36,10 +36,16 @@ function loadAllDrinks() {
 
 
 function displayDishes(data) {
+    for (const item of data) {
+        console.log(item.name)
+    }
 // Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle dishes
 }
 
 function displayDrinks(data) {
+    for (const item of data) {
+        console.log(item.name)
+    }
 // Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle drinks
 }
 
