@@ -1,7 +1,8 @@
 window.addEventListener('load', init);
 
 function init() {
-    loadAllDishes()
+    displayDishes()
+    displayDrinks()
 }
 
 function fetchData(action, id = null) {
@@ -26,8 +27,6 @@ function loadAllDishes() {
         }).catch(error => console.error(error))
 }
 
-
-
 function loadAllDrinks() {
     fetchData('getDrinks')
         .then(data => {
@@ -36,12 +35,27 @@ function loadAllDrinks() {
 }
 
 
-
 function displayDishes(data) {
-
+// Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle dishes
 }
 
 function displayDrinks(data) {
+// Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle drinks
+}
 
+function loadDishDetails(id) {
+    return fetchData('getDishDetails', id)
+        .then(data => {
+            console.log(`Details loaded for ${id}`)
+            return data;
+        })
+}
+
+function loadDrinkDetails(id) {
+    return fetchData('getDrinkDetails', id)
+        .then(data => {
+            console.log(`Details loaded for ${id}`)
+            return data;
+        })
 }
 

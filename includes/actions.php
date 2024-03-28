@@ -58,3 +58,15 @@ function getDrinks(): array
         ],
         ];
 }
+
+function getDishDetails(): array {
+    return [
+
+    ];
+}
+
+function getDrinkDetails(): array {
+    return [
+
+    ];
+}
