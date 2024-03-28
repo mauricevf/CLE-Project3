@@ -28,7 +28,7 @@ switch (isset($_GET['action'])) {
 
     case 'getDrinkDetails':
     case isset($_GET['id']):
-    $id = $_GET['id'];
-    echo json_encode(getDrinkDetails($id));
-    break;
+        $id = $_GET['id'];
+        echo json_encode(getDrinkDetails($id));
+        break;
 }
