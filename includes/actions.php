@@ -1,4 +1,6 @@
-function getDishes(){
+<?php
+function getDishes(): array
+{
     return [
             [
             "id" => 1,
@@ -24,10 +26,11 @@ function getDishes(){
             "image" => "Stoofpot",
             "allergies" => "Gluten",
         ],
-        ]
+        ];
 }
 
-function getDrinks(){
+function getDrinks(): array
+{
     return [
             [
             "id" => 1,
@@ -53,5 +56,5 @@ function getDrinks(){
             "image" => "Water",
             "allergies" => "Geen",
         ],
-        ]
+        ];
 }
