@@ -1,8 +1,9 @@
 window.addEventListener('load', init);
 
 function init() {
-    displayDishes()
-    displayDrinks()
+    loadAllDishes()
+    loadAllDrinks()
+    loadAllDesserts()
 }
 
 function fetchData(action, id = null) {
@@ -33,16 +34,66 @@ function loadAllDrinks() {
             displayDrinks(data);
         }).catch(error => console.error(error))
 }
+function loadAllDesserts() {
+    fetchData('getDesserts')
+        .then(data => {
+            displayDrinks(data);
+        }).catch(error => console.error(error))
+}
 
+function displayDishes(loadData) {
+    const content = document.getElementById('content')
+    for (const item of loadData) {
+        console.log(item.name)
+    }
+// Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle dishes
+    const card = document.createElement('div');
+    card.classList.add('card');
 
-function displayDishes(data) {
+    // img element, afbeeldingen toevoegen
+
+    const image = document.createElement('img');
+    image.src = path_to_images/${item.image}.jpg;
+    image.alt = item.name;
+    card.appendChild(image);
+
+    // title element toevoegen
+    const title = document.createElement('h2');
+    title.textContent = item.name;
+    card.appendChild(title);
+
+    // allergen toevoegen
+    const allergies = document.createElement('p');
+    allergies.textContent = Allergies: ${item.allergies};
+    card.appendChild(allergies);
+
+    // Append the card to the content container
+    content.appendChild(card);
+}
 // Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle dishes
 }
 
-function displayDrinks(data) {
+function displayDrinks(loadData) {
+    for (const item of loadData) {
+        console.log(item.name)
+    }
 // Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle drinks
 }
 
+function displayDesserts(loadData) {
+    for (const item of loadData) {
+        console.log(item.name)
+    }
+// Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle drinks
+}
+
+function loadDessertDetails(id) {
+    return fetchData('getDessertDetails', id)
+        .then(data => {
+            console.log(`Details loaded for ${id}`)
+            return data;
+        })
+}
 function loadDishDetails(id) {
     return fetchData('getDishDetails', id)
         .then(data => {

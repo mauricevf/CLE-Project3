@@ -59,6 +59,36 @@ function getDrinks(): array
         ];
 }
 
+function getDesserts(): array
+{
+    return [
+        [
+            "id" => 1,
+            "name" => "Tiramisu",
+            "image" => "Tiramisu",
+            "allergies" => "-",
+        ],
+        [
+            "id" => 2,
+            "name" => "Dame Blanche",
+            "image" => "Blanche",
+            "allergies" => "Lactose",
+        ],
+        [
+            "id" => 3,
+            "name" => "Baklava",
+            "image" => "Baklava",
+            "allergies" => "Noten",
+        ],
+        [
+            "id" => 4,
+            "name" => "Appeltaart",
+            "image" => "Applepie",
+            "allergies" => "Gluten",
+        ],
+    ];
+}
+
 function getDishDetails(): array {
     return [
         [
@@ -81,6 +111,28 @@ function getDishDetails(): array {
 }
 
 function getDrinkDetails(): array {
+    return [
+        [
+            "id" => 1,
+            "description" => "-"
+        ],
+        [
+            "id" => 2,
+            "description" => "-"
+        ],
+        [
+            "id" => 3,
+            "description" => "-"
+        ],
+        [
+            "id" => 4,
+            "description" => "-"
+        ],
+
+    ];
+}
+
+function getDessertDetails(): array {
     return [
         [
             "id" => 1,
