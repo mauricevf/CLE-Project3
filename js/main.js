@@ -1,10 +1,7 @@
 window.addEventListener('load', init);
 
-const apiUrl = 'actions.php';
-
-
 function init() {
-
+    loadAllDishes()
 }
 
 function fetchData(action, id = null) {
@@ -22,15 +19,29 @@ function fetchData(action, id = null) {
         .catch(error => console.error('Error fetching data:', error));
 }
 
-function loadAllData(myData) {
-    for (const item of myData) {
-        let myColumn = document.getElementById('content')
-        let myCard = document.createElement('div')
-        let myTitle = document.createElement('h1')
-        myTitle.textContent = item.name;
-        myColumn.appendChild(myCard)
-        myCard.appendChild(myTitle)
-    }
+function loadAllDishes() {
+    fetchData('getDishes')
+        .then(data => {
+            displayDishes(data);
+        }).catch(error => console.error(error))
+}
+
+
+
+function loadAllDrinks() {
+    fetchData('getDrinks')
+        .then(data => {
+            displayDrinks(data);
+        }).catch(error => console.error(error))
+}
+
+
+
+function displayDishes(data) {
+
+}
+
+function displayDrinks(data) {
 
 }
 
