@@ -53,7 +53,7 @@ function displayDishes(loadData) {
     // img element, afbeeldingen toevoegen
 
     const image = document.createElement('img');
-    image.src = `path_to_images/${item.image}.jpg`;
+    image.src = path_to_images/${item.image}.jpg;
     image.alt = item.name;
     card.appendChild(image);
 
@@ -64,23 +64,20 @@ function displayDishes(loadData) {
 
     // allergen toevoegen
     const allergies = document.createElement('p');
-    allergies.textContent = `Allergies: ${item.allergies}`;
+    allergies.textContent = Allergies: ${item.allergies};
     card.appendChild(allergies);
 
     // Append the card to the content container
     content.appendChild(card);
 }
+// Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle dishes
+}
 
 function displayDrinks(loadData) {
-
     for (const item of loadData) {
         console.log(item.name)
     }
-
 // Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle drinks
-    const content = document.getElementById('content');
-    const card = document.createElement('div');
-    card.classList.add('card');
 }
 
 function displayDesserts(loadData) {
