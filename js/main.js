@@ -50,10 +50,10 @@ function displayDishes(loadData) {
     const card = document.createElement('div');
     card.classList.add('card');
 
-    // img element, afbeeldingen toevoegen
+    // images element, afbeeldingen toevoegen
 
-    const image = document.createElement('img');
-    image.src = path_to_images/${item.image}.jpg;
+    const image = document.createElement('images');
+    image.src = `images/${item.image}.jpg`;
     image.alt = item.name;
     card.appendChild(image);
 
@@ -64,12 +64,12 @@ function displayDishes(loadData) {
 
     // allergen toevoegen
     const allergies = document.createElement('p');
-    allergies.textContent = Allergies: ${item.allergies};
+    allergies.textContent = `Allergies: ${item.allergies}`;
     card.appendChild(allergies);
 
     // Append the card to the content container
     content.appendChild(card);
-}
+
 // Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle dishes
 }
 
