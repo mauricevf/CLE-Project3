@@ -51,8 +51,8 @@ function displayDishes(loadData) {
 
         // images element, afbeeldingen toevoegen
 
-        const image = document.createElement('images');
-        image.src = `images/${item.image}.jpg`;
+        const image = document.createElement('img');
+        image.src = `images/${item.image}`;
         image.alt = item.name;
         card.appendChild(image);
 
