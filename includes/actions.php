@@ -1,95 +1,26 @@
 <?php
-function getDishes(): array
+
+require_once '../config/database.php';
+function getDishes(\PDO $db): array
 {
-    return [
-            [
-            "id" => 1,
-            "name" => "Varkensschnitzel met Patat",
-            "image" => "Schnitzel",
-            "allergies" => "Gluten",
-        ],
-         [
-            "id" => 2,
-            "name" => "Tournedos van het spit",
-            "image" => "Tournedos",
-            "allergies" => "Rood Vlees",
-        ],
-         [
-            "id" => 3,
-            "name" => "Geitenkaas Salade",
-            "image" => "Salade",
-            "allergies" => "Noten (Rucola)",
-        ],
-         [
-            "id" => 4,
-            "name" => "Kalfsstoofpot met griekse pasta",
-            "image" => "Stoofpot",
-            "allergies" => "Gluten",
-        ],
-        ];
+     $stmt = $db->query("SELECT * FROM menu WHERE type = 'dishes'");
+     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getDrinks(): array
+function getDrinks(\PDO $db): array
 {
-    return [
-            [
-            "id" => 1,
-            "name" => "Sex on The Beach",
-            "image" => "Beach",
-            "allergies" => "Kokosnoot",
-        ],
-         [
-            "id" => 2,
-            "name" => "Cola",
-            "image" => "Cola",
-            "allergies" => "Gluten",
-        ],
-         [
-            "id" => 3,
-            "name" => "Bier",
-            "image" => "Beer",
-            "allergies" => "Gluten",
-        ],
-         [
-            "id" => 4,
-            "name" => "Water",
-            "image" => "Water",
-            "allergies" => "Geen",
-        ],
-        ];
+    $stmt = $db->query("SELECT * FROM menu WHERE type = 'drinks'");
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getDesserts(): array
+function getDesserts(\PDO $db): array
 {
-    return [
-        [
-            "id" => 1,
-            "name" => "Tiramisu",
-            "image" => "Tiramisu",
-            "allergies" => "-",
-        ],
-        [
-            "id" => 2,
-            "name" => "Dame Blanche",
-            "image" => "Blanche",
-            "allergies" => "Lactose",
-        ],
-        [
-            "id" => 3,
-            "name" => "Baklava",
-            "image" => "Baklava",
-            "allergies" => "Noten",
-        ],
-        [
-            "id" => 4,
-            "name" => "Appeltaart",
-            "image" => "Applepie",
-            "allergies" => "Gluten",
-        ],
-    ];
+    $stmt = $db->query("SELECT * FROM menu WHERE type = 'desserts'");
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getDishDetails(): array {
+function getDishDetails(): array
+{
     return [
         [
             "id" => 1,
@@ -110,7 +41,8 @@ function getDishDetails(): array {
     ];
 }
 
-function getDrinkDetails(): array {
+function getDrinkDetails(): array
+{
     return [
         [
             "id" => 1,
@@ -132,7 +64,8 @@ function getDrinkDetails(): array {
     ];
 }
 
-function getDessertDetails(): array {
+function getDessertDetails(): array
+{
     return [
         [
             "id" => 1,
