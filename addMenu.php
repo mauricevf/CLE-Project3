@@ -67,6 +67,7 @@ if (!isset($_SESSION['user_id'])) {
             $name = $_POST['name'];
             $allergies = $_POST['allergies'];
             $type = $_POST['type'];
+            $prijs = $_POST['prijs'];
 
             $query = "INSERT INTO menu (name, image, allergies, type, prijs) VALUES ('$name','$image', '$allergies', '$type', '$prijs')";
             $stmt = $db->query($query);
