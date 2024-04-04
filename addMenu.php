@@ -36,6 +36,10 @@ if (!isset($_SESSION['user_id'])) {
                     <option value="Desserts">Desserts</option>
                 </select>
             </div>
+        <div class="field-body">
+            <label for="prijs">Prijs</label>
+            <input type="text" class="input" id="prijs" name="prijs">
+        </div>
             <div class="field-body">
                 <label for="image">Image</label>
                 <input type="file" class="input" id="image" name="image">
@@ -50,6 +54,7 @@ if (!isset($_SESSION['user_id'])) {
     $name = "";
     $allergies = "";
     $type = "";
+    $prijs = "";
     $image = "";
     $images = new \cle3\includes\Image();
 
@@ -58,12 +63,12 @@ if (!isset($_SESSION['user_id'])) {
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (!empty($_POST['name']) && !empty ($_POST['allergies']) && !empty($_POST['type'])){
+        if (!empty($_POST['name']) && !empty ($_POST['allergies']) && !empty($_POST['type']) && !empty($_POST['prijs'])){
             $name = $_POST['name'];
             $allergies = $_POST['allergies'];
             $type = $_POST['type'];
 
-            $query = "INSERT INTO menu (name, image, allergies, type) VALUES ('$name','$image', '$allergies', '$type')";
+            $query = "INSERT INTO menu (name, image, allergies, type, prijs) VALUES ('$name','$image', '$allergies', '$type', '$prijs')";
             $stmt = $db->query($query);
 
             if (!$stmt) {
