@@ -37,7 +37,7 @@ function loadAllDrinks() {
 function loadAllDesserts() {
     fetchData('getDesserts')
         .then(data => {
-            displayDrinks(data);
+            displayDesserts(data);
         }).catch(error => console.error(error))
 }
 
