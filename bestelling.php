@@ -14,13 +14,13 @@
 </head>
 <body>
 <!--Houdt dit erin (Nodig voor DOM)-->
-    <section id="content">
+<section id="content">
 
-        <nav class="menukaart">
-            <button>Menukaart</button>
-        </nav>
+    <nav class="menukaart">
+        <button>Bestel</button>
+    </nav>
 
 
-    </section>
+</section>
 </body>
 </html>
