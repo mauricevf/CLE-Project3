@@ -9,6 +9,7 @@ const DB_NAME = 'restaurant';
 
 const BASE_PATH = 'cle3/';
 
+
 set_error_handler(/**
  * @throws ErrorException
  */ function (int $severity, string $message, string $file, int $line): bool|null {

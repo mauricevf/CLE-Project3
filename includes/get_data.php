@@ -24,6 +24,9 @@ if (isset($_GET['action'])){
         case 'getDesserts':
             $data = getDesserts($db);
             break;
+        case 'getBestelling':
+            $data = getBestelling($db);
+            break;
         default:
             http_response_code(400); // Bad request
             echo json_encode(array("error" => "Invalid action"));
