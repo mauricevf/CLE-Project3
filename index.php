@@ -11,7 +11,7 @@
     <script src="js/main.js"></script>
     <link
             rel="icon"
-            href="https://image.cdn2.seaart.ai/2023-08-22/15094119452964869/3514f3e2a650050b5d50803bdae262e3f7c15aa0_high.webp"
+            href="https://image.cdn2.seaart.ai/static/80e888e0e8706954e2b97ebc980a172e/20230214/e5050630503855069f1da2bc03365233_high.webp"
     />
 </head>
 
