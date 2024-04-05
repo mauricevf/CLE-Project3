@@ -1,4 +1,3 @@
-<?php
 // Start the session to manage user data across requests
 session_start();
 global $db, $mysql;

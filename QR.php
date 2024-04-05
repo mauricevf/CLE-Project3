@@ -9,20 +9,15 @@
     <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
     <script src="js/main.js"></script>
     <link
-            rel="icon"
-            href="https://image.cdn2.seaart.ai/2023-08-22/15094119452964869/3514f3e2a650050b5d50803bdae262e3f7c15aa0_high.webp"
+        rel="icon"
+        href="https://image.cdn2.seaart.ai/2023-08-22/15094119452964869/3514f3e2a650050b5d50803bdae262e3f7c15aa0_high.webp"
     />
 </head>
 
 <body>
 <!--Houdt dit erin (Nodig voor DOM)-->
-    <section id="content">
-        <div class="btn-group">
-            <button>Eten</button>
-            <button>Drinken</button>
-            <button>Dessert</button>
-            <button>Bestelling</button>
-        </div>
-    </section>
+<section id="content">
+
+</section>
 </body>
 </html>

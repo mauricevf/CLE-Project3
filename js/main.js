@@ -34,6 +34,7 @@ function loadAllDrinks() {
             displayDrinks(data);
         }).catch(error => console.error(error))
 }
+
 function loadAllDesserts() {
     fetchData('getDesserts')
         .then(data => {
@@ -42,49 +43,68 @@ function loadAllDesserts() {
 }
 
 function displayDishes(loadData) {
-    const content = document.getElementById('content')
-    for (const item of loadData) {
-        console.log(item.name)
-// Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle dishes
+    const content = document.getElementById('content');
+    for (const dishes of loadData) {
         const card = document.createElement('div');
         card.classList.add('card');
 
-        // images element, afbeeldingen toevoegen
-
         const image = document.createElement('img');
-        image.src = `images/${item.image}`;
-        image.alt = item.name;
+        image.src = `images/${dishes.image}`;
+        image.alt = dishes.name;
         card.appendChild(image);
 
-        // title element toevoegen
         const title = document.createElement('h2');
-        title.textContent = item.name;
+        title.textContent = dishes.name;
         card.appendChild(title);
 
-        // allergen toevoegen
         const allergies = document.createElement('p');
-        allergies.textContent = `Allergies: ${item.allergies}`;
+        allergies.textContent = `Allergies: ${dishes.allergies}`;
         card.appendChild(allergies);
 
-        // Append the card to the content container
         content.appendChild(card);
-
-// Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle dishes
     }
 }
 
 function displayDrinks(loadData) {
-    for (const item of loadData) {
-        console.log(item.name)
+    const drinksContainer = document.getElementById('drinks-container');
+    for (const drinks of loadData) {
+        const card = document.createElement('div');
+        card.classList.add('card');
+
+        const image = document.createElement('img');
+        image.src = `images/${drinks.image}`;
+        image.alt = drinks.name;
+        card.appendChild(image);
+
+        const title = document.createElement('h2');
+        title.textContent = drinks.name;
+        card.appendChild(title);
+
+        drinksContainer.appendChild(card);
     }
-// Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle drinks
 }
 
 function displayDesserts(loadData) {
-    for (const item of loadData) {
-        console.log(item.name)
+    const dessertsContainer = document.getElementById('desserts-container');
+    for (const desserts of loadData) {
+        const card = document.createElement('div');
+        card.classList.add('card');
+
+        const image = document.createElement('img');
+        image.src = `images/${desserts.image}`;
+        image.alt = desserts.name;
+        card.appendChild(image);
+
+        const title = document.createElement('h2');
+        title.textContent = desserts.name;
+        card.appendChild(title);
+
+        const allergies = document.createElement('p');
+        allergies.textContent = `Allergies: ${desserts.allergies}`;
+        card.appendChild(allergies);
+
+        dessertsContainer.appendChild(card);
     }
-// Maak hier door middel van dom manipulatie en een for of loop een card aan voor alle drinks
 }
 
 function loadDessertDetails(id) {
@@ -94,6 +114,7 @@ function loadDessertDetails(id) {
             return data;
         })
 }
+
 function loadDishDetails(id) {
     return fetchData('getDishDetails', id)
         .then(data => {
@@ -109,4 +130,13 @@ function loadDrinkDetails(id) {
             return data;
         })
 }
+
+
+
+    function scrollToElement(id) {
+    const element = document.getElementById(id);
+    element.scrollIntoView({behavior: 'smooth'});
+}
+
+// menu
 
