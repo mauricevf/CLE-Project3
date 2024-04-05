@@ -42,6 +42,13 @@ function loadAllDesserts() {
         }).catch(error => console.error(error))
 }
 
+function loadBestelling() {
+    fetchData('getBestelling')
+        .then(data => {
+            displayBestelling(data);
+        }).catch(error => console.error(error))
+}
+
 function displayDishes(loadData) {
     const content = document.getElementById('content');
     for (const dishes of loadData) {
@@ -103,6 +110,12 @@ function displayDesserts(loadData) {
         card.appendChild(allergies);
 
         dessertsContainer.appendChild(card);
+    }
+}
+
+function displayBestelling(loadData){
+    for (const item of loadData) {
+        console.log(loadData)
     }
 }
 
