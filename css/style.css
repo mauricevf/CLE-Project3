@@ -41,20 +41,43 @@ p {
     -moz-transition: height .5s;
 }
 
+
+
 .card {
-        margin: 20px;
-        width: 300px;
-        text-align: center;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        transition: 0.3s;
-        border-radius: 10px;
-        cursor: pointer;
+    position: relative;
+    margin: 50px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .card img {
     width: 100%;
     height: auto;
+    border-radius: 10px 10px 0 0;
+    z-index: 0; /* Zet de z-index lager dan die van de btn-group */
 }
+
+
+.card h3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 94%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparante achtergrond */
+    color: white;
+    padding: 10px;
+    border-radius: 10px 10px 0 0; /* Afgeronde hoeken alleen bovenaan */
+    margin: 0; /* Verwijder eventuele marge */
+    white-space: nowrap; /* Zorg ervoor dat de titel op één regel blijft */
+    overflow: hidden; /* Verberg de overlopende tekst */
+    text-overflow: ellipsis; /* Voeg "..." toe aan het einde van overlopende tekst */
+    text-align: center; /* Centreer de titel */
+}
+
 
 @media (max-width: 500px) {
     h1 {
@@ -70,11 +93,11 @@ p {
         margin: 20px 12px 0 12px;
     }
     p {
-        font-size: 20px;
+        font-size: 15px;
         line-height: 24px;
     }
     .card {
-        margin: 20px;
+        margin: 50px;
         width: 300px;
         text-align: center;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -85,14 +108,23 @@ p {
 
 }
 
+.btn-group {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    z-index: 1; /* Zet de z-index hoger dan die van de afbeelding */
+}
+
 
 .btn-group button {
-    background-color: black; /* Zwart als achtergrondkleur */
-    border: 1px black; /* Groene rand */
-    color: white; /* Witte tekst */
-    padding: 10px 24px; /* Wat opvulling */
-    cursor: pointer; /* Muisaanwijzer/handpictogram */
-    float: left; /* Knoppen naast elkaar uitlijnen */
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+    padding: 10px 24px;
+    cursor: pointer;
+    float: left;
 }
 
 .btn-group button:not(:last-child) {
@@ -108,5 +140,5 @@ p {
 
 /* Add a background color on hover */
 .btn-group button:hover {
-    background-color: #3e8e41;
+    background-color: grey;
 }

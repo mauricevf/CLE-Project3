@@ -50,10 +50,9 @@ function displayDishes(loadData) {
 
         const image = document.createElement('img');
         image.src = `images/${dishes.image}`;
-        image.alt = dishes.name;
         card.appendChild(image);
 
-        const title = document.createElement('h2');
+        const title = document.createElement('h3');
         title.textContent = dishes.name;
         card.appendChild(title);
 
