@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: helvetica, sans-serif;
+    margin: 0 auto;
+    max-width: 600px;
+    background: #232323;
+}
+
+h1 {
+    font-family: 'Love Ya Like A Sister', cursive;
+    text-align: center;
+    font-size: 25px;
+    color: #aaaaaa;
+    margin: 60px 0 20px 0;
+}
+
+#dishOfTheWeekContainer, #searchBarContainer form  {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(48vw, 2fr)); /* Adjust minmax value as needed */
+    justify-content: center; /* Center align buttons */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #aaaaaa;
+}
+
+nav {
+    border: 1.5px #aaaaaa solid;
+    border-radius: 4px;
+}
+
+button {
+    background-color: black; /* Zwart als achtergrondkleur */
+    border: 1px solid black; /* zwart */
+    color: white; /* Witte tekst */
+    padding: 10px 24px; /* Wat opvulling */
+    border-radius: 4px;
+}
+
+.btn-group button {
+    cursor: pointer; /* Muisaanwijzer/handpictogram */
+    width: 50vw;
+    border: 1.5px #aaaaaa solid;
+}
+
+
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: grey;
+}
