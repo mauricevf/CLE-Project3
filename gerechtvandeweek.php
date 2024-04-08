@@ -17,8 +17,8 @@
         function loadDishOfTheWeek(){
             const image= document.createElement('img');
             const dishOfTheWeekContainer = document.getElementById('dishOfTheWeekContainer');
-            image.src =
-                image.alt = 'dishOfTheWeekImage';
+            image.src = "images/297b0fbc4319998a672b22cb92ade866c164f088660e82719835b1.94229793.jpg"
+            image.alt = 'dishOfTheWeekImage';
             dishOfTheWeekContainer.appendChild(image);
 
             const moreInfoButton = document.createElement('button');

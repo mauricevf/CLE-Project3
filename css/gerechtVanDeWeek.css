@@ -71,3 +71,7 @@ button {
 .btn-group button:hover {
     background-color: grey;
 }
+
+img {
+    width: 60vw;
+}
