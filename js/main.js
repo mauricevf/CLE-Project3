@@ -1,9 +1,6 @@
 window.addEventListener('load', init);
 
 function init() {
-    loadAllDishes()
-    loadAllDrinks()
-    loadAllDesserts()
     let gerechten = [];
     gerechten = localStorage.getItem('gerechten')
 }
@@ -45,10 +42,15 @@ function loadAllDesserts() {
 }
 
 function loadBestelling() {
-    fetchData('getBestelling')
-        .then(data => {
-            displayBestelling(data);
-        }).catch(error => console.error(error))
+        const selectedIDs = JSON.parse(localStorage.getItem('gerechten'));
+        if (selectedIDs) {
+            fetchData('getBestelling')
+                .then(data => {
+                    displayBestelling(data, selectedIDs);
+                }).catch(error => console.error(error));
+        } else {
+            console.log("No selected IDs found in localStorage.");
+        }
 }
 
 function displayDishes(loadData) {
@@ -104,7 +106,6 @@ function displayDesserts(loadData) {
         card.classList.add('card');
 
 
-
         const image = document.createElement('img');
         image.src = `images/${desserts.image}`;
         image.alt = desserts.name;
@@ -124,31 +125,28 @@ function displayDesserts(loadData) {
     }
 }
 
-function displayBestelling(loadData){
-    const content = document.getElementById('content');
-    let selectedID = JSON.parse(localStorage.getItem('gerechten'));
+function displayBestelling(loadData, myID) {
+    const bestellingContainer = document.getElementById('content');
+    console.log(myID)
     for (const item of loadData) {
-        let selectedItems = item.filter(item => selectedID.includes(item.id));
-
-        if (selectedItems.length > 0) {
+        if (myID.includes(item.id.toString())) {
             const card = document.createElement('div');
             card.classList.add('card');
 
             const image = document.createElement('img');
-            image.src = `images/${selectedItems.image}`;
+            image.src = `images/${item.image}`;
             card.appendChild(image);
-            image.addEventListener('click', addToStorage)
-            image.dataset.Gerechtid = selectedItems.id;
+            image.dataset.Gerechtid = item.id;
 
             const title = document.createElement('h3');
-            title.textContent = selectedItems.name;
+            title.textContent = item.name;
             card.appendChild(title);
 
             const allergies = document.createElement('p');
-            allergies.textContent = `Allergies: ${selectedItems.allergies}`;
+            allergies.textContent = `Allergies: ${item.allergies}`;
             card.appendChild(allergies);
 
-            content.appendChild(card);
+            bestellingContainer.appendChild(card);
         }
     }
 }
@@ -177,7 +175,7 @@ function loadDrinkDetails(id) {
         })
 }
 
-    function scrollToElement(id) {
+function scrollToElement(id) {
     const element = document.getElementById(id);
     element.scrollIntoView({behavior: 'smooth'});
 }
@@ -186,7 +184,7 @@ function loadDrinkDetails(id) {
 
 //Localstorage addon
 
-function addToStorage(e){
+function addToStorage(e) {
     let clickedItem = e.target;
     console.log('Clicked Item:', clickedItem);
     let gerechten = JSON.parse(localStorage.getItem('gerechten')) || [];
@@ -203,31 +201,29 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('btn-food').addEventListener('click', showFood);
     document.getElementById('btn-drink').addEventListener('click', showDrink);
     document.getElementById('btn-dessert').addEventListener('click', showDessert);
+    document.getElementById('btn-bestelling').addEventListener('click', showBestelling);
 
     function showFood() {
         hideAll();
-        document.querySelectorAll('.food').forEach(function (element) {
-            element.style.display = 'block';
-        });
+        loadAllDishes();
     }
 
     function showDrink() {
         hideAll();
-        document.querySelectorAll('.drink').forEach(function (element) {
-            element.style.display = 'block';
-        });
+        loadAllDrinks();
     }
 
     function showDessert() {
         hideAll();
-        document.querySelectorAll('.dessert').forEach(function (element) {
-            element.style.display = 'block';
-        });
+        loadAllDesserts()
+    }
+    function showBestelling() {
+        hideAll();
+        loadBestelling()
     }
 
     function hideAll() {
-        document.querySelectorAll('.item').forEach(function (element) {
-            element.style.display = 'none';
-        });
+        const content = document.getElementById('content')
+        content.innerHTML = '';
     }
 });
