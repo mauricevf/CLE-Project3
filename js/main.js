@@ -196,3 +196,38 @@ function addToStorage(e){
     localStorage.setItem('gerechten', JSON.stringify(gerechten));
     console.log('Stored in localStorage');
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    document.getElementById('btn-food').addEventListener('click', showFood);
+    document.getElementById('btn-drink').addEventListener('click', showDrink);
+    document.getElementById('btn-dessert').addEventListener('click', showDessert);
+
+    function showFood() {
+        hideAll();
+        document.querySelectorAll('.food').forEach(function (element) {
+            element.style.display = 'block';
+        });
+    }
+
+    function showDrink() {
+        hideAll();
+        document.querySelectorAll('.drink').forEach(function (element) {
+            element.style.display = 'block';
+        });
+    }
+
+    function showDessert() {
+        hideAll();
+        document.querySelectorAll('.dessert').forEach(function (element) {
+            element.style.display = 'block';
+        });
+    }
+
+    function hideAll() {
+        document.querySelectorAll('.item').forEach(function (element) {
+            element.style.display = 'none';
+        });
+    }
+});
