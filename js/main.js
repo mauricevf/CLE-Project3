@@ -4,6 +4,8 @@ function init() {
     loadAllDishes()
     loadAllDrinks()
     loadAllDesserts()
+    let gerechten = [];
+    gerechten = localStorage.getItem('gerechten')
 }
 
 function fetchData(action, id = null) {
@@ -58,6 +60,8 @@ function displayDishes(loadData) {
         const image = document.createElement('img');
         image.src = `images/${dishes.image}`;
         card.appendChild(image);
+        image.addEventListener('click', addToStorage)
+        image.dataset.Gerechtid = dishes.id;
 
         const title = document.createElement('h3');
         title.textContent = dishes.name;
@@ -72,7 +76,7 @@ function displayDishes(loadData) {
 }
 
 function displayDrinks(loadData) {
-    const drinksContainer = document.getElementById('drinks-container');
+    const drinksContainer = document.getElementById('content');
     for (const drinks of loadData) {
         const card = document.createElement('div');
         card.classList.add('card');
@@ -80,7 +84,10 @@ function displayDrinks(loadData) {
         const image = document.createElement('img');
         image.src = `images/${drinks.image}`;
         image.alt = drinks.name;
+        image.addEventListener('click', addToStorage)
+        image.dataset.Gerechtid = drinks.id;
         card.appendChild(image);
+
 
         const title = document.createElement('h2');
         title.textContent = drinks.name;
@@ -91,14 +98,18 @@ function displayDrinks(loadData) {
 }
 
 function displayDesserts(loadData) {
-    const dessertsContainer = document.getElementById('desserts-container');
+    const dessertsContainer = document.getElementById('content');
     for (const desserts of loadData) {
         const card = document.createElement('div');
         card.classList.add('card');
 
+
+
         const image = document.createElement('img');
         image.src = `images/${desserts.image}`;
         image.alt = desserts.name;
+        image.addEventListener('click', addToStorage)
+        image.dataset.Gerechtid = desserts.id;
         card.appendChild(image);
 
         const title = document.createElement('h2');
@@ -143,8 +154,6 @@ function loadDrinkDetails(id) {
         })
 }
 
-
-
     function scrollToElement(id) {
     const element = document.getElementById(id);
     element.scrollIntoView({behavior: 'smooth'});
@@ -152,3 +161,15 @@ function loadDrinkDetails(id) {
 
 // menu
 
+//Localstorage addon
+
+function addToStorage(e){
+    let clickedItem = e.target;
+    console.log('Clicked Item:', clickedItem);
+    let gerechten = JSON.parse(localStorage.getItem('gerechten')) || [];
+    console.log('Parsed localStorage:', gerechten);
+    gerechten.push(clickedItem.dataset.Gerechtid);
+    console.log('Updated gerechten:', gerechten);
+    localStorage.setItem('gerechten', JSON.stringify(gerechten));
+    console.log('Stored in localStorage');
+}
