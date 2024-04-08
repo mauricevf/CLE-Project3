@@ -125,8 +125,31 @@ function displayDesserts(loadData) {
 }
 
 function displayBestelling(loadData){
+    const content = document.getElementById('content');
+    let selectedID = JSON.parse(localStorage.getItem('gerechten'));
     for (const item of loadData) {
-        console.log(loadData)
+        let selectedItems = item.filter(item => selectedID.includes(item.id));
+
+        if (selectedItems.length > 0) {
+            const card = document.createElement('div');
+            card.classList.add('card');
+
+            const image = document.createElement('img');
+            image.src = `images/${selectedItems.image}`;
+            card.appendChild(image);
+            image.addEventListener('click', addToStorage)
+            image.dataset.Gerechtid = selectedItems.id;
+
+            const title = document.createElement('h3');
+            title.textContent = selectedItems.name;
+            card.appendChild(title);
+
+            const allergies = document.createElement('p');
+            allergies.textContent = `Allergies: ${selectedItems.allergies}`;
+            card.appendChild(allergies);
+
+            content.appendChild(card);
+        }
     }
 }
 

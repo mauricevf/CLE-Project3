@@ -21,8 +21,10 @@ function getDesserts(\PDO $db): array
 
 function getBestelling(\PDO $db): array
 {
-    $id = $_GET['id'];
-    $stmt = $db->query("SELECT * FROM bestelling WHERE id = $id");
+//    $id = $_GET['id'];
+//    $stmt = $db->query("SELECT * FROM bestelling WHERE id = $id");
+//    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $stmt = $db->query("SELECT * FROM menu");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
