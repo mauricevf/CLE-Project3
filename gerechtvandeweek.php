@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toto Bestelservice</title>
     <script src="https://kit.fontawesome.com/7acb2867d6.js" crossorigin="anonymous"></script>
-    <script src="https://codepen.io/shshaw/pen/QmZYMG.js"></script>
     <link rel="stylesheet" href="css/gerechtVanDeWeek.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-nrjV3czq/KEKnlvq0Uzdb5yho21XL8MCM7AaVv0bwM0x/Uq8Ma6R3esPU6rP++QlAAZTD6TsF1oL9q28BZ/z9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
